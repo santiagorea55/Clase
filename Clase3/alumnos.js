@@ -23,7 +23,7 @@ formulario.addEventListener("submit", function (evento) {
     // Crear un objeto alumno
     const alumno = {
         nombre: nombre.value,
-        apellidoP: apellidop.value,
+        apellidoP: apellidoP.value,
         apellidoM: apellidoM.value,
         carrera: carrera.value,
         numcontrol: numcontrol.value
@@ -46,7 +46,6 @@ formulario.addEventListener("submit", function (evento) {
 
 });
 
-
 // Función para mostrar alumnos
 function mostrarAlumnos() {
 
@@ -59,13 +58,11 @@ function mostrarAlumnos() {
         elemento.classList.add("alumno");
 
         elemento.innerHTML = `
-            <strong>${alumno.nombre},${alumno.apellidoP},${alumno.apellidoM}</strong>
+            <strong>${alumno.nombre} ${alumno.apellidoP} ${alumno.apellidoM}</strong>
             <p>${alumno.carrera}</p>
             <p>${alumno.numcontrol}</p>
         `;
 
         lista.appendChild(elemento);
-
     });
-
 }
