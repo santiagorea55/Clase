@@ -42,13 +42,13 @@ input {
 
     input:focus {
         outline: none;
-        border-color: #4a90e2;
+        border-color: #e72abe;
     }
 
 button {
     margin-top: 18px;
     padding: 10px;
-    background-color: #4a90e2;
+    background-color: #e72abe;
     color: white;
     border: none;
     border-radius: 5px;
@@ -56,14 +56,14 @@ button {
 }
 
     button:hover {
-        background-color: #357abd;
+        background-color: #c420a0;
     }
 
 .alumno {
     background-color: #f8f8f8;
     margin-top: 10px;
     padding: 12px;
-    border-left: 4px solid #4a90e2;
+    border-left: 4px solid #e72abe;
     border-radius: 5px;
 }
 
