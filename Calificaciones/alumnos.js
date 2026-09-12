@@ -8,28 +8,20 @@ const materia2 = document.getElementById("materia2");
 const materia3 = document.getElementById("materia3");
 const lista = document.getElementById("lista");
 
-
-
 // Obtener los alumnos guardados
 let alumnos = JSON.parse(localStorage.getItem("alumnos")) || [];
 
-// Mostrar los alumnos al cargar la página
+// Mostrar los alumnos al cargar la página por primera vez
 mostrarAlumnos();
 
-// Evento del formulario
+// Evento para guardar el alumno al presionar el botón del formulario
 formulario.addEventListener("submit", function (evento) {
-
-    // Evitar que la página se recargue
     evento.preventDefault();
-    
+
     let cal1 = Number(materia1.value);
     let cal2 = Number(materia2.value);
     let cal3 = Number(materia3.value);
 
-    // Calcular el promedio correctamente
-    let promFinal = (cal1 + cal2 + cal3) / 3;
-
-    // Crear un objeto alumno
     const alumno = {
         nombre: nombre.value,
         apellidoP: apellidoP.value,
@@ -37,36 +29,22 @@ formulario.addEventListener("submit", function (evento) {
         materia1: cal1,
         materia2: cal2,
         materia3: cal3,
-        promedio: promFinal     
+        promedio: ((cal1 + cal2 + cal3) / 3).toFixed(2)
     };
 
-    // Agregar el alumno al arreglo
     alumnos.push(alumno);
-
-    // Guardar en localStorage
-    localStorage.setItem(
-        "alumnos",
-        JSON.stringify(alumnos)
-    );
-
-    // Mostrar nuevamente la lista
+    localStorage.setItem("alumnos", JSON.stringify(alumnos));
+    
     mostrarAlumnos();
-
-    // Limpiar formulario
     formulario.reset();
-
 });
 
-
-// Función para mostrar alumnos
+// Función para mostrar y eliminar alumnos
 function mostrarAlumnos() {
-
     lista.innerHTML = "";
 
-    alumnos.forEach(function (alumno) {
-
+    alumnos.forEach(function (alumno, index) {
         const elemento = document.createElement("div");
-
         elemento.classList.add("alumno");
 
         elemento.innerHTML = `
@@ -75,8 +53,14 @@ function mostrarAlumnos() {
             <p>Español ${alumno.materia2}</p>
             <p>Historia ${alumno.materia3}</p>
             <p>Promedio Final ${alumno.promedio}</p>
-            
+            <button class="btn-eliminar">Eliminar</button>
         `;
+
+        elemento.querySelector(".btn-eliminar").addEventListener("click", function() {
+            alumnos.splice(index, 1);
+            localStorage.setItem("alumnos", JSON.stringify(alumnos));
+            mostrarAlumnos();
+        });
 
         lista.appendChild(elemento);
     });
