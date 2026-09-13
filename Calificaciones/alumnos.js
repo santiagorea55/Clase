@@ -58,7 +58,7 @@ function mostrarAlumnos() {
             <p>Matematicas ${alumno.materia1}</p>
             <p>Español ${alumno.materia2}</p>
             <p>Historia ${alumno.materia3}</p>
-            <p>Promedio Final ${alumno.promedio} ${estatus}</p>
+            <p>Promedio Final ${alumno.promedio} ${alumno.estatus}</p>
             <button class="btn-eliminar">Eliminar</button>
         `;
 
