@@ -21,6 +21,12 @@ formulario.addEventListener("submit", function (evento) {
     let cal1 = Number(materia1.value);
     let cal2 = Number(materia2.value);
     let cal3 = Number(materia3.value);
+    let estatus = "";
+        if (promedioFinal >= 7) {
+            estatus = "Aprobado";
+        } else {
+            estatus = "Reprobado";
+        }
 
     const alumno = {
         nombre: nombre.value,
