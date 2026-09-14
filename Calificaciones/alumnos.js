@@ -22,7 +22,7 @@ formulario.addEventListener("submit", function (evento) {
     let cal2 = Number(materia2.value);
     let cal3 = Number(materia3.value);
     let estatus = "";
-        if (promedioFinal >= 7) {
+        if (promedio >= 7) {
             estatus = "Aprobado";
         } else {
             estatus = "Reprobado";
@@ -35,7 +35,8 @@ formulario.addEventListener("submit", function (evento) {
         materia1: cal1,
         materia2: cal2,
         materia3: cal3,
-        promedio: ((cal1 + cal2 + cal3) / 3).toFixed(2)
+        promedio: ((cal1 + cal2 + cal3) / 3),
+        estatus: estatus
     };
 
     alumnos.push(alumno);
